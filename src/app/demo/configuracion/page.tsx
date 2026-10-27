@@ -1,0 +1,6 @@
+'use client';
+import { useState } from 'react';
+import { useDemo } from '@/components/demo/Shell';
+import { initialDocuments, initialMovements } from '@/lib/demo-data';
+import { PageHeading, Details, Badge } from '@/components/demo/ui';
+export default function Settings() { const { setDocuments, setMovements } = useDemo(); const [done, setDone] = useState(false); return <><PageHeading title="Configuración" subtitle="Un espacio preparado para explorar, sin conectar datos reales."/><section className="d-panel d-settings-panel"><Badge>Entorno demo</Badge><h2>Tu espacio de demostración</h2><Details values={{ Empresa: 'Mi empresa · Pyme ficticia', Moneda: 'Pesos uruguayos (UYU)', Período: 'Septiembre de 2026', Almacenamiento: 'Estado local durante esta sesión', Integraciones: 'Sin conexiones externas', Acceso: 'Por enlace, sin autenticación' }}/><p>Los archivos agregados no se envían a ningún servidor. Las consultas utilizan respuestas predefinidas. Al recargar se restauran los datos iniciales.</p><button className="d-button secondary" onClick={() => { setDocuments(initialDocuments); setMovements(initialMovements); setDone(true); }}>Restablecer datos de ejemplo</button><p role="status">{done ? 'Movimientos y documentos restablecidos.' : ''}</p></section></>; }

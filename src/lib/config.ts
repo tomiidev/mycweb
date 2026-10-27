@@ -3,7 +3,7 @@ export const brand = {
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL || '',
   booking: process.env.NEXT_PUBLIC_BOOKING_URL || '',
 };
-export const interests = ['Asistente de documentos', 'Conciliación bancaria', 'Consultas comerciales', 'Búsqueda de productos', 'Desarrollo a medida', 'Todavía no lo sé'];
+export const interests = ['Asistente de documentos', 'Conciliación bancaria', 'Consultas comerciales', 'Búsqueda de productos', 'Desarrollo a medida', 'Clases de informática', 'Todavía no lo sé'];
 export type Contact = {name:string;company:string;email:string;interest:string;description:string;website:string;startedAt:number};
 export function validate(data: Contact) {
   if (!data || typeof data !== 'object') return 'Revisá los datos de la consulta.';
