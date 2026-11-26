@@ -1,6 +1,6 @@
 # Mate y Código — sitio comercial
 
-Landing en Next.js, TypeScript y Tailwind CSS. Identidad visual basada en el workspace `ideas`: verdes, fondos claros, tipografía Arial y esquinas de 3 px. No requiere base de datos ni servicios de IA.
+Sitio comercial en Next.js y TypeScript. La nueva landing está en `/`, la página anterior en `/test` y el entorno de demostración en `/demo`.
 
 ## Ejecutar
 
@@ -15,8 +15,9 @@ Producción local: `npm run build` y `npm start`. No se publicó el sitio.
 ## Editar
 
 - Marca y contactos: `src/lib/config.ts`.
-- Contenido, demos y formulario: `src/components/Landing.tsx`.
-- Estilos y variables de color: `src/app/globals.css`.
+- Landing comercial y formulario: src/app/page.tsx y src/app/ContactForm.tsx.
+- Landing anterior y demos integradas: src/components/Landing.tsx.
+- Estilos: `src/app/home.module.css` para la landing comercial y `src/app/globals.css` para la base y la página anterior.
 - Metadatos: `src/app/layout.tsx`.
 
 ## Envío de consultas con Resend
@@ -43,4 +44,3 @@ Pruebas locales sin enviar emails: `node --test tests/contact.test.cjs`. Cubren 
 ## Demos
 
 Datos locales y ficticios: preguntas y fuentes, filtros y razones de conciliación, clasificación y borradores, búsquedas predefinidas. Las pestañas admiten flechas, Inicio y Fin. No hay conexión con los productos de `ideas` ni acceso a sus credenciales. Todas las soluciones se presentan como MVP/pilotos, sin resultados comerciales inventados.
-
