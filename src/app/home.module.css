@@ -80,6 +80,15 @@
 .feature svg { color: var(--lime); }
 .feature h3 { font-size: clamp(1.9rem, 3vw, 2.8rem); margin-block: 16px 10px; }
 .feature p { color: #dae1d4; max-width: 55ch; }
+.site .storeLink { margin-top: 14px; }
+.storeLink a { color: var(--lime); text-decoration: underline; text-underline-offset: 4px; }
+.storeLink a:hover { color: var(--cream); }
+.serviceLink { margin-top: 14px; color: #3b562c; font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.serviceLink:hover { color: var(--dark); }
+.actions .secondary:has(svg) { display: inline-flex; align-items: center; gap: 8px; }
+.storeHero { padding-block: clamp(48px, 8vw, 112px); }
+.storeHero .intro { max-width: 58ch; }
+.cards .storeCard svg { margin-bottom: 14px; }
 .feature ul { list-style: none; margin: 0; padding: 0; }
 .feature li { border-top: 1px solid #ffffff30; padding: 9px 0; }
 .feature li:last-child { border-bottom: 1px solid #ffffff30; }

@@ -1,5 +1,7 @@
 import { AudioLines, Download, Globe2, MessageCircle, Search, Workflow } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import type { Metadata } from 'next';
 import { brand } from '@/lib/config';
 import { getEmailConfig } from '@/lib/email';
 import ContactForm from './ContactForm';
@@ -8,21 +10,28 @@ import styles from './home.module.css';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://mateycodigo.vercel.app/' },
+};
+
 const services = [
   {
     name: 'Visibilidad en IA', tag: 'Piloto GEO', icon: Search,
+    href: '/visibilidad-en-ia',
     proposalId: '1pMuAM6yg0U6lnNcPvwykaceju3qB8veP',
     description: 'Revisamos cómo están descritos tus servicios, tu zona de atención y tus datos de contacto para que los buscadores con IA puedan entender mejor tu negocio.',
     detail: 'Diagnóstico, mejoras priorizadas y consultas de prueba para comparar observaciones.',
   },
   {
     name: 'Automatización con IA', tag: 'Piloto', icon: Workflow,
+    href: '/automatizacion-con-ia',
     proposalId: '1qBARTUtzawIrJ4dcZcXSb2ejj8gzenYa',
     description: 'Elegimos una tarea que te ocupa tiempo, como organizar consultas o registrar reservas, y probamos un flujo con las herramientas que ya usás.',
     detail: 'Pruebas con casos habituales, derivación a una persona y una guía para medir el tiempo ahorrado.',
   },
   {
     name: 'Estrategia de contenido', tag: 'Complemento', icon: AudioLines,
+    href: '/estrategia-de-contenido',
     proposalId: '1B0Ihg0FvuVGc9Ln292yvxEsi-rSysjqQ',
     description: 'Convertimos las preguntas de tus clientes en ideas que tu equipo pueda llevar a posts, carruseles y videos.',
     detail: 'Pilares de contenido, calendario inicial y ejemplos de textos o guiones.',
@@ -88,8 +97,9 @@ export default function Page() {
               <div>
                 <Globe2 size={30} strokeWidth={1.5} aria-hidden="true" />
                 <h3>Desarrollo web</h3>
-                <p>Diseñamos y desarrollamos landings, webs comerciales y catálogos adaptados a celulares. Definimos qué querés que haga un cliente al entrar y le damos un camino claro para hacerlo.</p>
+                <p>Diseñamos landings, webs comerciales, catálogos y tiendas online adaptadas a celulares. Podemos sumar reservas o un canal de consultas según cómo trabajás.</p>
                 <ProposalDownload service="Desarrollo web" fileId="1tDHdT2FqgS6wmepX41LjEPW37Xz-Mb5z" />
+                <p className={styles.storeLink}><Link href="/tiendas-online">Conocé el servicio de creación de tiendas online</Link></p>
               </div>
               <ul>
                 <li>Estructura y diseño según tu objetivo</li>
@@ -98,13 +108,14 @@ export default function Page() {
               </ul>
             </article>
             <div className={styles.cards}>
-              {services.map(({ name, tag, icon: Icon, description, detail, proposalId }) => (
+              {services.map(({ name, tag, icon: Icon, description, detail, proposalId, href }) => (
                 <article key={name}>
                   <Icon size={26} strokeWidth={1.5} aria-hidden="true" />
                   <p className={styles.kicker}>{tag}</p>
                   <h3>{name}</h3>
                   <p>{description}</p>
                   <p className={styles.serviceDetail}>{detail}</p>
+                  <Link className={styles.serviceLink} href={href}>Ver detalles de {name}</Link>
                   <ProposalDownload service={name} fileId={proposalId} />
                 </article>
               ))}
